@@ -1,0 +1,5 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource prefix="/test1-project">
+<file alias="main.qml">/home/linux/qt-project/test1-project/main.qml</file>
+</qresource>
+</RCC>
