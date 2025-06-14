@@ -17,7 +17,7 @@ ApplicationWindow {
     // 显示消息提示
     function showMessage(text) {
         messageDialog.text = text
-        messageDialog.open()
+        messageDialog.open()    //open是用来显示一个对话框的方法
     }
     
     // 导航函数
@@ -130,8 +130,8 @@ ApplicationWindow {
         contentItem: Text {
             id: messageText
             text: ""
-            wrapMode: Text.Wrap
-            anchors.margins: 10
+            wrapMode: Text.Wrap    //当文本长度超出对话框宽度时，文本会自动换行
+            anchors.margins: 10    //让文本与对话框边缘保持 10 像素的间距，使显示效果更加美观
         }
         buttons: Button {
             text: "确定"
