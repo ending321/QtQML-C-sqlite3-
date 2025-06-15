@@ -2,7 +2,8 @@ QT += quick virtualkeyboard core sql network
 
 SOURCES += \
         main.cpp \
-        udpclient.cpp
+        udpclient.cpp \
+        userdatabase.cpp
 
 resources.files = main.qml 
 resources.prefix = /$${TARGET}
@@ -21,4 +22,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    udpclient.h
+    udpclient.h \
+    userdatabase.h
+
+DISTFILES += \
+    LoginPage.qml \
+    RegisterPage.qml

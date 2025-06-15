@@ -1,3 +1,9 @@
 <RCC>
-    <qresource prefix="/"/>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>LoginPage.qml</file>
+        <file>RegisterPage.qml</file>
+        <file>userdatabase.cpp</file>
+        <file>userdatabase.h</file>
+    </qresource>
 </RCC>

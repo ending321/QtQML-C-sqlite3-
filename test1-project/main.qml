@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.VirtualKeyboard
 import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
 
 ApplicationWindow {
     id: mainwindow
@@ -19,15 +20,32 @@ ApplicationWindow {
         messageDialog.open()
     }
 
-    //导航函数
-    function goToLogin(){currentPage = "login"}
-    function goToRegister(){currentPage = "register"}
-    function goToDelivery(){currentPage = "delivery"}
-    function goToPickup(){currentPage = "pickup"}
+    Column {
+            anchors.fill: parent
+            spacing: 8
 
-    //顶部导航栏
-    Row{
+            // 保留原有导航栏
+            Row {
+                id: navBar
+                width: parent.width
+                height: 40
+                spacing: 20
+                // 导航按钮逻辑（与StackView结合）
+                Button {
+                    text: "登录"
+                    onClicked: stack.push("qrc:/LoginPage.qml")
+                }
+                Button {
+                    text: "注册"
+                    onClicked: stack.push("qrc:/RegisterPage.qml")
+                }
+            }
+    }
 
+    StackView{
+        id:stack
+        anchors.fill: parent
+        initialItem: "qrc:/LoginPage.qml"
     }
     /*
     Button{
@@ -39,4 +57,15 @@ ApplicationWindow {
         }
     }
     */
+    //消息对话框
+    Dialog{
+        id:messageDialog
+        title:"提示"
+        contentItem: Text{
+            text:""
+            anchors.fill: parent
+            padding:10
+        }
+        standardButtons: Dialog.Ok
+    }
 }
