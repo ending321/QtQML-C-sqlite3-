@@ -56,7 +56,7 @@ Window {
                     font.pixelSize: 25
                     horizontalAlignment: Text.AlignHCenter  // 文本水平居中
                 }
-                //onClicked: stack.push(("qrc:/login.qml"))
+                onClicked: stack.push(("qrc:/login.qml"))
             }
 
         }
