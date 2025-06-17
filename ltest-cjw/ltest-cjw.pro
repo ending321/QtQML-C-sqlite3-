@@ -22,3 +22,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     udpclient.h
+
+DISTFILES += \
+    login.qml

@@ -21,6 +21,45 @@ Window {
 
     Component{
         id:mainView
+
+        Column{
+            spacing: 10
+
+            Image{
+                id:delivery_image
+                width: parent.width
+                fillMode: Image.PreserveAspectFit
+                //Component.onCompleted: {delivery_image.source="qrc:/new/prefix1/delivery.png"}
+                source: "qrc:/new/prefix1/delivery.png"
+                onStatusChanged: {
+                    if(status === Image.Ready){console.log("图片加载成功")}
+                    else if(status === Image.Error){console.log("图片加载失败:", errorString)}
+                }
+            }
+
+            Button{
+                id:deliveryButton
+                anchors.horizontalCenter: parent.horizontalCenter   // 水平居中于父容器
+                width: parent.width*0.5 // 宽度为父容器的一半
+
+                //自定义背景样式
+                background:Rectangle{
+                    radius:8
+                    color:deliveryButton.pressed?"darkblue":"#FFF0F0"
+                    border.color: "#FFCCCC"
+                    border.width: 1
+
+                }
+                contentItem: Text { //按钮文本内容
+                    id: button_delivery
+                    text: qsTr("投 递")
+                    font.pixelSize: 25
+                    horizontalAlignment: Text.AlignHCenter  // 文本水平居中
+                }
+                //onClicked: stack.push(("qrc:/login.qml"))
+            }
+
+        }
     }
 
     InputPanel {
